@@ -1,0 +1,4 @@
+name = "AdventOfCode23"
+uuid = "00575d3c-aba5-43ad-888a-bb7955d9bf10"
+authors = ["Léopold Trémant <29092877+tremelow@users.noreply.github.com>"]
+version = "0.1.0"
