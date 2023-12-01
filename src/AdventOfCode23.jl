@@ -1,5 +1,9 @@
 module AdventOfCode23
 
-greet() = print("Hello World!")
+using DelimitedFiles
+
+include("day1.jl")
+
+export day1a, day1b
 
 end # module AdventOfCode23
