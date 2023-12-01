@@ -2,7 +2,7 @@ function first_last_digit(s::AbstractString)
     isint = c -> 0 ≤ (Int(c) - Int('0')) ≤ 9
     i = findfirst(isint, s)
     j = findlast(isint, s)
-    return s[i] * s[j]
+    return parse(Int, s[i] * s[j])
 end
 
 function with_letters(s::AbstractString)
@@ -18,10 +18,10 @@ end
 
 function day1a(fname)
     data = readdlm(fname, String)[:]
-    return sum(parse.(Int, first_last_digit.(data)))
+    return sum(first_last_digit.(data))
 end
 
 function day1b(fname)
     data = readdlm(fname, String)[:]
-    return sum(parse.(Int, with_letters.(data)))
+    return sum(with_letters.(data))
 end
