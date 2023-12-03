@@ -24,5 +24,19 @@ function day3a(fname)
 end
 
 function day3b(fname)
-    return 0
+    data = readlines(fname)
+    pos = vcat(([(l,p) for p in pos] for (l,pos) in enumerate(findall.(r"\d+", data)))...)
+    nb = parse.(Int, map(lp -> data[lp[1]][lp[2]], pos))
+    pos_nb = pos_to_index.(pos)
+
+    data = permutedims(hcat(split.(data, "")...))
+    min_index, max_index = CartesianIndex((1,1)), CartesianIndex(size(data))
+    pos_gears = [p:p for p in findall(==("*"), data)]
+    adj_g = map(p -> extend_window(p, min_index, max_index), pos_gears)
+    val_g = zeros(Int, length(pos_gears))
+    for (n, a) in enumerate(adj_g)
+        adj_nb = findall(b -> !isempty(intersect(a,b)), pos_nb)
+        (length(adj_nb) == 2) && (val_g[n] = prod(nb[adj_nb]))
+    end
+    return sum(val_g)
 end
