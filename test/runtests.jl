@@ -12,4 +12,7 @@ end
 @testset "Day 3" begin
     include("day3.jl")
 end
+@testset "Day 4" begin
+    include("day4.jl")
+end
 

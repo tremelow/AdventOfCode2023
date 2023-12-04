@@ -8,5 +8,7 @@ include("day2.jl")
 export day2a, day2b
 include("day3.jl")
 export day3a, day3b
+include("day4.jl")
+export day4a#, day4b
 
 end # module AdventOfCode23
