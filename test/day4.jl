@@ -9,4 +9,5 @@
 end
 @testset "Global" begin
     @test day4a("exemple/day4.txt") == 13
+    @test day4b("exemple/day4.txt") == 30
 end
