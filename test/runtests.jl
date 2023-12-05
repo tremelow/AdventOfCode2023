@@ -15,4 +15,7 @@ end
 @testset "Day 4" begin
     include("day4.jl")
 end
+@testset "Day 5" begin
+    include("day5.jl")
+end
 
