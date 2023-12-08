@@ -1,1 +1,0 @@
-@test day5a("exemple/day5.txt") == 35

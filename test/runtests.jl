@@ -8,12 +8,19 @@ end
     include("day2.jl")
 end
 @testset "Day 3" begin
-    include("day3.jl")
+    @test day3a("exemple/day3.txt") == 4361
+    @test day3b("exemple/day3.txt") == 467835
 end
 @testset "Day 4" begin
     include("day4.jl")
 end
 @testset "Day 5" begin
-    include("day5.jl")
+    @test day5a("exemple/day5.txt") == 35
+end
+
+@testset "Day 8" begin
+    @test day8a("exemple/day8a.txt") == 2
+    @test day8a("exemple/day8b.txt") == 6
+    @test day8b("exemple/day8c.txt") == 6
 end
 
