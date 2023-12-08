@@ -1,5 +1,3 @@
-import Base.Iterators: Stateful, cycle
-
 function to_index(c::Char)
     if c == 'L'; 1
     elseif c == 'R'; 2
@@ -14,12 +12,13 @@ end
 
 function day8a(fname)
     data = readlines(fname)
-    directions = Stateful(cycle(to_index.(only.(split(data[1], "")))))
+    directions = to_index.(only.(split(data[1], "")))
+    n_dir = length(directions)
     nodes = Dict(parse_node.(data[3:end])...)
 
     state, steps = "AAA", 0
     while state != "ZZZ"
-        dir = popfirst!(directions)
+        dir = directions[mod(steps, n_dir) + 1]
         state = nodes[state][dir]
         steps += 1
     end
@@ -28,19 +27,22 @@ end
 
 function day8b(fname)
     data = readlines(fname)
-    directions = Stateful(cycle(to_index.(only.(split(data[1], "")))))
+    directions = to_index.(only.(split(data[1], "")))
+    n_dir = length(directions)
     nodes = Dict(parse_node.(data[3:end])...)
 
     state = collect(filter(k -> k[3] == 'A', keys(nodes)))
     cycle_length = [0 for _ in state]
     steps = 0
+
     while any(==(0), cycle_length)
-        dir = popfirst!(directions)
-        steps += 1
+        dir = directions[mod(steps, n_dir) + 1]
+
         for (i, (s, l)) in enumerate(zip(state, cycle_length))
             state[i] = nodes[s][dir]
-            (c == 0) && state[i][end] == 'Z' && (cycle_length[i] = steps)
+            (l == 0) && (s[end] == 'Z') && (cycle_length[i] = steps)
         end
+        steps += 1
     end
     return lcm(cycle_length...)
 end
