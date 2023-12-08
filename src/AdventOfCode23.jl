@@ -1,7 +1,5 @@
 module AdventOfCode23
 
-using DelimitedFiles
-
 include("day1.jl")
 export day1a, day1b
 include("day2.jl")
@@ -12,5 +10,7 @@ include("day4.jl")
 export day4a, day4b
 include("day5.jl")
 export day5a
+include("day8.jl")
+export day8a
 
 end # module AdventOfCode23

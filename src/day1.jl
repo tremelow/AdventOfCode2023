@@ -17,11 +17,11 @@ function with_letters(s::AbstractString)
 end
 
 function day1a(fname)
-    data = readdlm(fname, String)[:]
+    data = readlines(fname)
     return sum(first_last_digit.(data))
 end
 
 function day1b(fname)
-    data = readdlm(fname, String)[:]
+    data = readlines(fname)
     return sum(with_letters.(data))
 end

@@ -4,6 +4,5 @@ authors = ["Léopold Trémant <29092877+tremelow@users.noreply.github.com>"]
 version = "0.1.0"
 
 [deps]
-DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
