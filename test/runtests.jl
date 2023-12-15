@@ -24,3 +24,8 @@ end
     @test day8b("exemple/day8c.txt") == 6
 end
 
+@testset "Day 15" begin
+    @test day15a("exemple/day15a.txt") == 52 # "HASH"
+    @test day15a("exemple/day15b.txt") == 1320
+end
+
