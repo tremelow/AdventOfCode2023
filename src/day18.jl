@@ -1,6 +1,3 @@
-using SparseArrays
-
-
 function initialise_matrix(moves)
     unshifted_positions = cumsum(moves)
     min_pos, max_pos = minimum(unshifted_positions), maximum(unshifted_positions)
